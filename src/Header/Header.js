@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import MainStart from './components/MainStart'
+// import MainStart from './components/MainStart'
 import TopStart from './components/TopStart'
 
 
 function Header() {
     const [open, setOpen] = useState('')
 
-    let navigate = useNavigate()
+    // let navigate = useNavigate()
     
 
     const openNav = () => setOpen('open')
