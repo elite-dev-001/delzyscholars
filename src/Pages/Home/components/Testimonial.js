@@ -20,7 +20,7 @@ function Testimonial() {
                             <div className="single-testimonial swiper-slide swiper-slide-active" role="group" aria-label="1 / 3" style={{width: "360px", marginRight: "30px"}}>
                                 <div className="testimonial-author">
                                     <div className="author-thumb">
-                                        <img src="assets/images/author/author-06.jpg" alt="Author" />
+                                        <img src="https://res.cloudinary.com/dziy1glm5/image/upload/v1660330291/WhatsApp_Image_2022-08-06_at_12.55.31_PM_pdwpec.jpg" alt="Author" />
 
                                         <i className="icofont-quote-left"></i>
                                     </div>
@@ -31,8 +31,8 @@ function Testimonial() {
                                 </div>
                                 <div className="testimonial-content">
                                     <p>It's exactly what I've been looking for. Delzy scholars, online learning has completely surpassed our expectations. I STRONGLY recommend Delzy scholars, online learning to EVERYONE interested in having a successful academic performance!</p>
-                                    <h4 className="name">Sara Alexander</h4>
-                                    <span className="designation">Product Designer, USA</span>
+                                    <h4 className="name">Egbejuma Faith</h4>
+                                    <span className="designation"> Pharmacy, Uniport</span>
                                 </div>
                             </div>
                             {/* <!-- Single Testimonial End --> */}
@@ -41,7 +41,7 @@ function Testimonial() {
                             <div className="single-testimonial swiper-slide swiper-slide-next" role="group" aria-label="2 / 3" style={{width: "360px", marginRight: "30px"}}>
                                 <div className="testimonial-author">
                                     <div className="author-thumb">
-                                        <img src="assets/images/author/author-07.jpg" alt="Author" />
+                                        <img src="https://res.cloudinary.com/dziy1glm5/image/upload/v1660330290/WhatsApp_Image_2022-08-06_at_4.08.45_PM_zqqhq8.jpg" alt="Author" />
 
                                         <i className="icofont-quote-left"></i>
                                     </div>
@@ -52,8 +52,8 @@ function Testimonial() {
                                 </div>
                                 <div className="testimonial-content">
                                     <p>I just can't get enough of Delzy scholars, online learning. I want to get a T-Shirt with Delzy scholars, on it so I can show it off to everyone. It's the perfect solution for Academic Success</p>
-                                    <h4 className="name">Melissa Roberts</h4>
-                                    <span className="designation">Product Designer, USA</span>
+                                    <h4 className="name">Nwii Waazor Barilee</h4>
+                                    {/* <span className="designation">Product Designer, USA</span> */}
                                 </div>
                             </div>
                             {/* <!-- Single Testimonial End --> */}
@@ -62,7 +62,7 @@ function Testimonial() {
                             <div className="single-testimonial swiper-slide" role="group" aria-label="3 / 3" style={{width: "360px", marginRight: "30px"}}>
                                 <div className="testimonial-author">
                                     <div className="author-thumb">
-                                        <img src="assets/images/author/author-03.jpg" alt="Author" />
+                                        <img src="https://res.cloudinary.com/dziy1glm5/image/upload/v1660330290/WhatsApp_Image_2022-08-06_at_12.21.31_AM_oyza3i.jpg" alt="Author" />
 
                                         <i className="icofont-quote-left"></i>
                                     </div>
@@ -73,8 +73,8 @@ function Testimonial() {
                                 </div>
                                 <div className="testimonial-content">
                                     <p>No matter where you go, Delzy scholars, online learning is the coolest, most happening thing around! Delzy scholars, online learning is worth much more than I paid. Since I started in Delzy scholars, online learning I made tremendous progress academically. I am completely blown away.</p>
-                                    <h4 className="name">Sara Alexander</h4>
-                                    <span className="designation">Product Designer, USA</span>
+                                    <h4 className="name">Miracle Ikedimma</h4>
+                                    <span className="designation">Uniport, Port Harcourt</span>
                                 </div>
                             </div>
                             {/* <!-- Single Testimonial End --> */}
