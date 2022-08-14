@@ -1,7 +1,39 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { usePaystackPayment } from 'react-paystack';
 import { useNavigate } from 'react-router-dom';
+
+
+const config = {
+    reference: (new Date()).getTime().toString(),
+    email: "support@delzyscholars.com",
+    amount: 200000,
+    publicKey: 'pk_live_6f16d735236a5774d9444768ec143fd99c87aea7'
+}
+
+const onSuccess = (reference) => {
+    console.log(reference)
+    window.alert('Payment Successful')
+    window.location.href = '/'
+}
+
+const onClose = () => {
+    console.log('closed')
+    window.alert('Payment could not be processed')
+    window.location.href = '/instructor'
+}
+
+const PaystackHookExample = () => {
+    const initializePayment = usePaystackPayment(config);
+    return (
+        <div>
+            <button className="btn btn-primary btn-hover-dark w-100" onClick={() => {
+                initializePayment(onSuccess, onClose)
+            }}>Submit</button>
+        </div>
+    );
+}
 
 
 function InstructorStart() {
@@ -121,7 +153,7 @@ function InstructorStart() {
 
                                     <div className="single-form" style={{display: disp}}>
                                         {/* <label htmlFor='level'>Select Level</label> */}
-                                        <select required {...register('level')} className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  name='level' >
+                                        <select required {...register('level')} className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  >
                                             <option value=''>Select Level</option>
                                             <option value='l100'>Level 100</option>
                                             <option value='l200'>Level 200</option>
@@ -174,7 +206,8 @@ function InstructorStart() {
                                     {/* <!-- Single Form End --> */}
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
-                                        <button className="btn btn-primary btn-hover-dark w-100">Submit</button>
+                                        <PaystackHookExample />
+                                        {/* <button className="btn btn-primary btn-hover-dark w-100">Submit</button> */}
                                         {/* <a className="btn btn-secondary btn-outline w-100" href="#">Sign up with Google</a> */}
                                     </div>
                                     {/* <!-- Single Form End --> */}
