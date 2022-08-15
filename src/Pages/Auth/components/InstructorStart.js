@@ -12,28 +12,7 @@ const config = {
     publicKey: 'pk_live_6f16d735236a5774d9444768ec143fd99c87aea7'
 }
 
-const onSuccess = (reference) => {
-    console.log(reference)
-    window.alert('Payment Successful')
-    window.location.href = '/'
-}
 
-const onClose = () => {
-    console.log('closed')
-    window.alert('Payment could not be processed')
-    window.location.href = '/instructor'
-}
-
-const PaystackHookExample = () => {
-    const initializePayment = usePaystackPayment(config);
-    return (
-        <div>
-            <button className="btn btn-primary btn-hover-dark w-100" onClick={() => {
-                initializePayment(onSuccess, onClose)
-            }}>Submit</button>
-        </div>
-    );
-}
 
 
 function InstructorStart() {
@@ -71,14 +50,14 @@ function InstructorStart() {
 
         const smsData = {
             'number': data['number'],
-            'message': 'Thank you for indicating interest in DELZY SCHOLARS PROJECT WRITING \n Kindly Complete the set-up \n - By texting our admin via whatsapp: https://wa.link/zafw8i \n By sms: 07038101576 \n DELZY SCHOLARS: Redefining learning & stirring you to academic greatness'
+            'message': 'Thank you for indicating interest as DELZY SCHOLARS IN \n Kindly Complete the set-up \n - By texting our admin via whatsapp: https://wa.link/zafw8i \n By sms: 07038101576 \n DELZY SCHOLARS: Redefining learning & stirring you to academic greatness'
         }
 
         axios.post('https://africanspringsapi.herokuapp.com/api/post/send/sms',smsData).then((res) => {
 
             const admin = {
                 'number':'07038101576',
-                'message': `${data['name']} just booked for project writing in ${data['category']} with phone number: ${data['number']}. In Faculty: ${data['faculty']} and Department ${data['department']}. Topic: ${data['topic']} `
+                'message': `${data['name']} \n ${data['uni']} \n ${data['degree']} \n ${data['level']} \n ${data['department']} \n ${data['number']} \n ${data['gender']} \n ${data['address']} \n ${data['topic']} \n ${data['fee']}`
             }
             
             axios.post('https://africanspringsapi.herokuapp.com/api/post/send/sms', admin).then((res) => {
@@ -91,6 +70,30 @@ function InstructorStart() {
             console.log(err)
         })
     };
+
+    const onSuccess = (reference) => {
+        console.log(reference)
+        window.alert('Payment Successful')
+        // window.location.href = '/'
+        onSubmit()
+    }
+    
+    const onClose = () => {
+        console.log('closed')
+        window.alert('Payment could not be processed')
+        window.location.href = '/instructor'
+    }
+    
+    const PaystackHookExample = () => {
+        const initializePayment = usePaystackPayment(config);
+        return (
+            <div>
+                <button className="btn btn-primary btn-hover-dark w-100" onClick={() => {
+                    initializePayment(onSuccess, onClose)
+                }}>Submit</button>
+            </div>
+        );
+    }
   return (
     <div className="section section-padding">
         <div className="container">
@@ -140,7 +143,7 @@ function InstructorStart() {
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
                                         {/* <label htmlFor='degree'>Select Degree</label> */}
-                                        <select onChange={(e) => onSelect(e.target.value)} required  className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  name='degree' >
+                                        <select {...register('degree')} onChange={(e) => onSelect(e.target.value)} required  className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  name='degree' >
                                             <option value=''>Select Degree</option>
                                             <option value='it'>Master (M.Sc)</option>
                                             <option value='bsc'>Bachelor (B.Sc)</option>
