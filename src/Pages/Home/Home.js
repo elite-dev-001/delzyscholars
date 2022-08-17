@@ -1,4 +1,5 @@
 import React from 'react'
+import {HashLink as Link } from 'react-router-hash-link'
 import ActionStart from './components/ActionStart'
 import AppStart from './components/AppStart'
 import Blog from './components/Blog'
@@ -15,6 +16,11 @@ function Home() {
     <>
       <div className='overlay'></div>
       <SliderStart />
+      <div className='section section-padding-02'>
+        <div className='container' style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <Link className="btn btn-primary btn-hover-dark w-100" to='#instructor' smooth >Join DelzyScholars today as an Instructor</Link>
+        </div>
+      </div>
       <ActionStart main='Book for a private session/tutorial. Both online & offline' span=' (WAEC, JAMB, PUTME, UNIPORT, RSUST, IAUE, UNIUYO e.t.c.)' sub='Private Session' btn='Book Now' link='/private' />
       <ActionStart main="Let's help you write your" span='I.T REPORT, RESEARCH PROJECT & MASTER THESIS' sub='REPORT, PROJECT & THESIS' btn='Sign Up' link='/project' />
       <ActionStart main='Purchase Delzy Study Materials' span=' (WAEC, JAMB, PUTME, UNIPORT, RSUST, IAUE, UNIUYO e.t.c.)' sub='Delzy Study Materials' btn='Purchase Now' link='#course' />

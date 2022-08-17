@@ -4,7 +4,7 @@ import {HashLink as Link } from 'react-router-hash-link'
 function ActionStart(props) {
     const {sub, main, btn, span, link} = props
   return (
-    <div className="section section-padding-02">
+    <div id={link === '/instructor' ? 'instructor' : ''} className="section section-padding-02">
         <div className="container">
 
             {/* <!-- Call to Action Wrapper Start --> */}
