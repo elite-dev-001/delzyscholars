@@ -17,8 +17,8 @@ function Home() {
       <div className='overlay'></div>
       <SliderStart />
       <div className='section section-padding-02'>
-        <div className='container' style={{display: 'flex', justifyContent: 'center', alignItems: 'center', whiteSpace: 'nowrap'}}>
-          <Link className="btn btn-primary btn-hover-dark w-100" to='#instructor' smooth >Click to join DelzyScholars today as an Instructor</Link>
+        <div className='container' style={{display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
+          <Link className="btn btn-primary btn-hover-dark w-100" to='#instructor' smooth >Click to join DelzyScholars Instructors</Link>
         </div>
       </div>
       <ActionStart main='Book for a private session/tutorial. Both online & offline' span=' (WAEC, JAMB, PUTME, UNIPORT, RSUST, IAUE, UNIUYO e.t.c.)' sub='Private Session' btn='Book Now' link='/private' />
