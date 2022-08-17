@@ -5,11 +5,15 @@ import { usePaystackPayment } from 'react-paystack';
 import { useNavigate } from 'react-router-dom';
 
 
+const livePublicKey = 'pk_live_6f16d735236a5774d9444768ec143fd99c87aea7'
+const testPublicKey = 'pk_test_81b44119342883ffd970a7900732d9d6e00cd157'
+
 const config = {
     reference: (new Date()).getTime().toString(),
     email: "support@delzyscholars.com",
+    number: '09037128859',
     amount: 200000,
-    publicKey: 'pk_live_6f16d735236a5774d9444768ec143fd99c87aea7'
+    publicKey: testPublicKey
 }
 
 
@@ -24,6 +28,8 @@ function InstructorStart() {
 
     const [unis, setUni] = useState([])
     const [disp, setDisplay] = useState('none')
+    const [show, setShow] = useState('none')
+    const [btn, setBtn] = useState('block')
 
     const onSelect = (e) => {
         console.log(e)
@@ -61,7 +67,7 @@ function InstructorStart() {
             }
             
             axios.post('https://africanspringsapi.herokuapp.com/api/post/send/sms', admin).then((res) => {
-            window.alert('Message Sent Successfully')
+            window.alert('Done')
             navigate('/')
             }).catch((err) => {
                 console.log(err)
@@ -75,7 +81,8 @@ function InstructorStart() {
         console.log(reference)
         window.alert('Payment Successful')
         // window.location.href = '/'
-        onSubmit()
+        setShow('block')
+        setBtn('none')
     }
     
     const onClose = () => {
@@ -90,7 +97,7 @@ function InstructorStart() {
             <div>
                 <button className="btn btn-primary btn-hover-dark w-100" onClick={() => {
                     initializePayment(onSuccess, onClose)
-                }}>Submit</button>
+                }}>Make Payment to Proceed</button>
             </div>
         );
     }
@@ -130,7 +137,28 @@ function InstructorStart() {
                                         <input required {...register('name')} type="text" placeholder="Name" />
                                     </div>
                                     {/* <!-- Single Form End --> */}
+                                    {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
+                                        <input required {...register('number')} type="tel" placeholder="Phone" />
+                                    </div>
+                                    {/* <!-- Single Form End --> */}
+                                    <div className="single-form">
+                                        <input required {...register('email')} type="email" placeholder="Email" />
+                                    </div>
+                                    {/* <!-- Single Form End --> */}
+                                    <div className="single-form">
+                                        <textarea required {...register('topic')} type="text" placeholder="Short note on why you want to become our tutor" />
+                                    </div>
+                                    {/* <!-- Single Form End --> */}
+                                    <label htmlFor='fee'>Non Refundable fee for your ID Card and Training Materials</label>
+                                    <div className="single-form">
+                                        <input required {...register('fee')} type="text" value='₦2,000.00' readOnly />
+                                    </div>
+                                    <div className='single-form' style={{display: btn}}>
+                                        <PaystackHookExample />
+                                    </div>
+                                    {/* <!-- Single Form End --> */}
+                                    <div className="single-form" style={{display: show}}>
                                         {/* <label htmlFor='uni'>Select School</label> */}
                                         <select required {...register('uni')} className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  name='uni' >
                                             <option value=''>Select School</option>
@@ -141,7 +169,7 @@ function InstructorStart() {
                                         </select>
                                     </div>
                                     {/* <!-- Single Form Start --> */}
-                                    <div className="single-form">
+                                    <div className="single-form" style={{display: show}}>
                                         {/* <label htmlFor='degree'>Select Degree</label> */}
                                         <select {...register('degree')} onChange={(e) => onSelect(e.target.value)} required  className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  name='degree' >
                                             <option value=''>Select Degree</option>
@@ -156,7 +184,7 @@ function InstructorStart() {
 
                                     <div className="single-form" style={{display: disp}}>
                                         {/* <label htmlFor='level'>Select Level</label> */}
-                                        <select required {...register('level')} className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  >
+                                        <select {...register('level')} className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  >
                                             <option value=''>Select Level</option>
                                             <option value='l100'>Level 100</option>
                                             <option value='l200'>Level 200</option>
@@ -166,16 +194,12 @@ function InstructorStart() {
                                         </select>
                                     </div>
 
-                                    <div className="single-form">
+                                    <div className="single-form" style={{display: show}}>
                                         <input required {...register('department')} type="text" placeholder="Department" />
-                                    </div>
-
-                                    <div className="single-form">
-                                        <input required {...register('number')} type="tel" placeholder="Phone" />
                                     </div>
                                     {/* <!-- Single Form End --> */}
                                     {/* <!-- Single Form Start --> */}
-                                    <div className="single-form">
+                                    <div className="single-form" style={{display: show}}>
                                         {/* <label htmlFor='gender'>Gender</label> */}
                                         <select required {...register('gender')} className='single-form' style={{border:'1px solid rgba(48, 146, 85, 0.2',width: '100%', height: '60px', padding: '0 25px', fontSize: '15px', color: '#52565b', borderRadius: '10px', background: '#fff', transition: 'all 0.3s ease 0s'}}  name='gender' >
                                             <option value=''>Select Gender</option>
@@ -183,20 +207,12 @@ function InstructorStart() {
                                             <option value='female'>Female</option>
                                         </select>
                                     </div>
-                                    <div className="single-form">
+                                    <div className="single-form" style={{display: show}}>
                                         <input required {...register('address')} type="text" placeholder="Address" />
                                     </div>
                                     {/* <div className="single-form">
                                         <input required {...register('department')} type="text" placeholder="Department" />
                                     </div> */}
-                                    <div className="single-form">
-                                        <textarea required {...register('topic')} type="text" placeholder="Short note on why you want to become our tutor" />
-                                    </div>
-                                    {/* <!-- Single Form End --> */}
-                                    <label htmlFor='fee'>Non Refundable fee for your ID Card and Training Materials</label>
-                                    <div className="single-form">
-                                        <input required {...register('fee')} type="text" value='₦2,000.00' readOnly />
-                                    </div>
                                     {/* <!-- Single Form Start --> */}
                                     {/* <div className="single-form">
                                         <label htmlFor='mode'>Mode of Tutoring</label>
@@ -209,8 +225,7 @@ function InstructorStart() {
                                     {/* <!-- Single Form End --> */}
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
-                                        <PaystackHookExample />
-                                        {/* <button className="btn btn-primary btn-hover-dark w-100">Submit</button> */}
+                                        <button className="btn btn-primary btn-hover-dark w-100" style={{display: show}}>Submit</button>
                                         {/* <a className="btn btn-secondary btn-outline w-100" href="#">Sign up with Google</a> */}
                                     </div>
                                     {/* <!-- Single Form End --> */}

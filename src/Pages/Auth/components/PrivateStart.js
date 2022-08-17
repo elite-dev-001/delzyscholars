@@ -79,6 +79,9 @@ function PrivateStart() {
                                         <input required {...register('number')} type="tel" placeholder="Phone" />
                                     </div>
                                     {/* <!-- Single Form End --> */}
+                                    <div className="single-form">
+                                        <input required {...register('email')} type="email" placeholder="Email" />
+                                    </div>
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
                                         <label htmlFor='category'>Category for private tutoring</label>
@@ -93,7 +96,7 @@ function PrivateStart() {
                                     </div>
                                     {/* <!-- Single Form End --> */}
                                     <div className="single-form">
-                                        <input required {...register('subject')} type="text" placeholder="Type your preferred subject" />
+                                        <input required {...register('subject')} type="text" placeholder="Type your preferred subject(s)" />
                                     </div>
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
