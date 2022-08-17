@@ -13,7 +13,7 @@ const config = {
     email: "support@delzyscholars.com",
     number: '09037128859',
     amount: 200000,
-    publicKey: testPublicKey
+    publicKey: livePublicKey
 }
 
 
