@@ -11,6 +11,7 @@ import Footer from './Pages/Footer/Footer'
 import Private from "./Pages/Auth/Private"
 import Project from "./Pages/Auth/Project"
 import Instructor from "./Pages/Auth/Instructor"
+import Admin from "./Pages/Admin/Admin"
 
 
 
@@ -29,8 +30,8 @@ function App() {
           <Route path='/private' element={ <Private />} />
           <Route path='/project' element={ <Project />} />
           <Route path='/instructor' element={<Instructor />} />
-          {/* <Route path='/' element={} />
-          <Route path='/' element={} />
+          <Route path='/admin/:id/:token' element={<Admin />} />
+          {/*<Route path='/' element={} />
           <Route path='/' element={} />
           <Route path='/' element={} /> */}
           <Route path='*' element={ <Error />} />

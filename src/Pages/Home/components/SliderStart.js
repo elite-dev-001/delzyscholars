@@ -37,7 +37,7 @@ function SliderStart() {
                     <div >
                         <Slider {...settings}>
                             <div><p style={{margin: '1em auto', fontWeight: 'bold', fontSize: '1.4rem', color: '#309255'}}>Secondary</p></div>
-                            <div><p style={{margin: '1em auto', fontWeight: 'bold', fontSize: '1.4rem', color: '#309255'}}>Pre-Degree (Remedial) </p></div>
+                            <div><p style={{margin: '1em auto', fontWeight: 'bold', fontSize: '1.4rem', color: '#309255'}}>Pre-Degree (Remedial/Basic) </p></div>
                             <div><p style={{margin: '1em auto', fontWeight: 'bold', fontSize: '1.4rem', color: '#309255'}}>A-Level (JUPEB)</p></div>
                             <div><p style={{margin: '1em auto', fontWeight: 'bold', fontSize: '1.4rem', color: '#309255'}}>University (Tertiary Institution)</p> </div>
                         </Slider>

@@ -18,7 +18,7 @@ function RegisterStart() {
 
 
                             <div className="images">
-                                <img src="assets/images/register-login.png" alt="Register Login" />
+                                <img src="https://res.cloudinary.com/dziy1glm5/image/upload/v1660937693/pexels-pavel-danilyuk-7944067-removebg-preview_zifchd.png" alt="Register Login" />
                             </div>
                         </div>
                         {/* <!-- Register & Login Images End --> */}
@@ -55,7 +55,7 @@ function RegisterStart() {
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
                                         <button className="btn btn-primary btn-hover-dark w-100">Create an account</button>
-                                        <a className="btn btn-secondary btn-outline w-100" href="#">Sign up with Google</a>
+                                        {/* <a className="btn btn-secondary btn-outline w-100" href="#">Sign up with Google</a> */}
                                     </div>
                                     {/* <!-- Single Form End --> */}
                                 </form>
