@@ -2,9 +2,9 @@ import React from 'react'
 import SingleCourse from './SingleCourse'
 
 function CourseGroup(props) {
-    const {active, id, courses} = props
+    const {courses} = props
   return (
-    <div className={`tab-pane fade show ${active} `} id={id} >
+    <div className={`tab-pane fade show active`} id='tabs1' >
         <div className='courses-wrapper'>
             <div className='row'>
                 {

@@ -1,41 +1,42 @@
 import React, { useState } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 function TabMenuStart() {
-  const [waec, setWaec] = useState('')
-  const [jamb, setJamb] = useState('')
-  const [uniport, setUniport] = useState('')
-  const [ust, setUst] = useState('swiper-slide-active')
-  const [putme, setPutme] = useState('')
-  const [current, setCurrent] = useState(2)
-  // const [, set] = useState('')
-  // const [, set] = useState('')
-  const category = [setWaec, setJamb, setUniport, setUst, setPutme];
+  let [current, setCurrent] = useState(0)
 
-  const onNext = () => {
-    console.log('Click')
-      category[current]('')
-      category[current+1]('swiper-slide-active')
-      setCurrent(current + 1)
+const categories = ['UNIPORT', 'RSUST', 'IAUE', 'WAEC', 'JAMB', 'POST-UTME']
+
+
+const next = () => {
+  
+  if(current < (categories.length -1)){
+    current += 1;
+    setCurrent(current)
   }
+}
+const prev = () => {
+  if(current > 0){
+    current -= 1;
+    setCurrent(current)
+  }
+}
+
+
   return (
     // <!-- All Courses Tabs Menu Start -->
-    <div className="courses-tabs-menu courses-active">
-        <div className="swiper-container">
-            <ul className="swiper-wrapper nav">
-                <li className={`swiper-slide ${waec}`}><button className="active" data-bs-toggle="tab" data-bs-target="#tabs1">Uniport</button></li>
-                <li className={`swiper-slide ${jamb}`} role="group" aria-label="2 / 7" style={{width: "240px", marginRight: "30px"}}><button data-bs-toggle="tab" data-bs-target="#tabs2">JAMB</button></li>
-                <li className={`swiper-slide ${uniport} `} role="group" aria-label="3 / 7" style={{width: "240px", marginRight: "30px"}}><button data-bs-toggle="tab" data-bs-target="#tabs3">WAEC</button></li>
-                {/* <li className="swiper-slide swiper-slide-next" role="group" aria-label="4 / 7" style={{width: "240px", marginRight: "30px"}}><button data-bs-toggle="tab" data-bs-target="#tabs4">Physics</button></li> */}
-                <li className={`swiper-slide ${putme} swiper-slider-prev`} role="group" aria-label="5 / 7" style={{width: "240px", marginRight: "30px"}}><button data-bs-toggle="tab" data-bs-target="#tabs5">Post-UTME</button></li>
-                <li className={`swiper-slide ${ust}`} role="group" aria-label="6 / 7" style={{width: "240px", marginRight: "30px"}}><button data-bs-toggle="tab" data-bs-target="#tabs6">RSUST</button></li>
-                {/* <li className="swiper-slide" role="group" aria-label="7 / 7" style={{width: "240px", marginRight: "30px"}}><button data-bs-toggle="tab" data-bs-target="#tabs7">Undergraduates</button></li> */}
-            </ul>
-        <span className="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+  <div className="courses-tabs-menu courses-active">
+    <div className="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+        <ul className="swiper-wrapper nav" id="swiper-wrapper-cd6db713b148e148" aria-live="polite">
+            <li className="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7"><button className="active" data-bs-toggle="tab" data-bs-target="#tabs1"> {categories[current]} </button></li>
+        </ul>
+    <span className="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
 
-        {/* <!-- Add Pagination --> */}
-        <div onClick={() => onNext()} className="swiper-button-next" tabIndex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-437e73e7b22c238f" aria-disabled="false"><i className="icofont-rounded-right"></i></div>
-        <div className="swiper-button-prev" tabIndex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-437e73e7b22c238f" aria-disabled="false"><i className="icofont-rounded-left"></i></div>
-    </div>
+    {/* <!-- Add Pagination --> */}
+    <div onClick={() => next()} className="swiper-button-next" tabIndex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-cd6db713b148e148" aria-disabled="false"><i className="icofont-rounded-right"></i></div>
+    <div onClick={() => prev()} className="swiper-button-prev" tabIndex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-cd6db713b148e148" aria-disabled="false"><i className="icofont-rounded-left"></i></div>
+</div>
   )
 }
 

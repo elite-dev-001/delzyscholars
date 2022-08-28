@@ -27,7 +27,7 @@ function Home() {
       <div className='section section-padding-02'>
         <div className='container'>
           <TopStartCourse />
-          <TabMenuStart />
+          {/* <TabMenuStart /> */}
           <CourseWrapper />
         </div>
       </div>
