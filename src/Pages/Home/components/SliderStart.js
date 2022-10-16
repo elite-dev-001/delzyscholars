@@ -21,7 +21,16 @@ function SliderStart() {
   return (
     // <!-- Slider Start -->
         <div className="section slider-section">
-
+            <div style={{ margin: '1em', height: '50vh', display: 'block'}}>
+                <Slider {...settings}>
+                    <img src='assets/images/sliders/slider_1.jpeg' height='400px' />
+                    <img src='assets/images/sliders/slider_2.jpeg' height='400px' />
+                    <img src='assets/images/sliders/slider_3.jpeg' height='400px' />
+                    <img src='assets/images/sliders/slider_4.jpeg' height='400px' />
+                    <img src='assets/images/sliders/slider_5.jpeg' height='400px' />
+                    <img src='assets/images/sliders/slider_6.jpeg' height='400px' />
+                </Slider>
+            </div>
             {/* <!-- Slider Shape Start --> */}
             <div className="slider-shape">
                 <img className="shape-1 animation-round" src="assets/images/shape/shape-8.png" alt="Shape" />
@@ -29,7 +38,6 @@ function SliderStart() {
             {/* <!-- Slider Shape End --> */}
 
             <div className="container" style={{display: 'flex'}}>
-
                 {/* <!-- Slider Content Start --> */}
                 <div className="slider-content" style={{width: '100%'}}>
                     <h4 className="sub-title">Start your favourite course</h4>
