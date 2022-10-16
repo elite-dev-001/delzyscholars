@@ -37,7 +37,8 @@ function LoginStart() {
                 setErr('')
                 const token = data['data']
                 const userData = JSON.parse(atob(token.slice(37, -44)))
-                getUser(userData['id'], token)
+                const id = userData['id']
+                window.location.href = `https://student.delzyscholars.com/${id}`
             }else {
                 setErr(data['error'])
                 setLoading(false)

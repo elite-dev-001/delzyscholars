@@ -1,6 +1,36 @@
-import React from 'react'
+import axios from 'axios'
+import React, {useState} from 'react'
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom';
+import { SpinnerCircular } from 'spinners-react';
 
 function RegisterStart() {
+
+    const [loading, setLoading] = useState(false)
+    const [err, setErr] = useState('')
+    const navigate = useNavigate()
+
+    const {
+        register,
+        handleSubmit
+    } = useForm()
+
+    const onSubmit = (data) => {
+        setLoading(true);
+        console.log(data)
+        setErr('')
+        axios.post('https://delzyscholarsapi.herokuapp.com/api/create/user', data).then((res) => {
+            console.log(res)
+            window.alert('Student Registered Successfully')
+            navigate('/login')
+        }).catch((err) => {
+            console.error(err)
+            setErr('Could not register user')
+            setLoading(false)
+        })
+    }
+
+
   return (
     <div className="section section-padding">
         <div className="container">
@@ -31,31 +61,35 @@ function RegisterStart() {
                             <h3 className="title">Registration <span>Now</span></h3>
 
                             <div className="form-wrapper">
-                                <form action="#">
+                                <form onSubmit={handleSubmit(onSubmit)}>
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
-                                        <input type="text" placeholder="Name" />
+                                        <input required {...register('name')} type="text" placeholder="Name" />
+                                    </div>
+                                    {/* <!-- Single Form End --> */}
+                                    <div className="single-form">
+                                        <input required {...register('phoneNumber')} type="tel" placeholder="Phone Number" />
+                                    </div>
+                                    {/* <!-- Single Form Start --> */}
+                                    <div className="single-form">
+                                        <input required {...register('email')} type="email" placeholder="Email" />
                                     </div>
                                     {/* <!-- Single Form End --> */}
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
-                                        <input type="email" placeholder="Email" />
+                                        <input required {...register('password')} type="password" placeholder="Password" />
                                     </div>
                                     {/* <!-- Single Form End --> */}
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
-                                        <input type="password" placeholder="Password" />
+                                        <input required {...register('confirmPassword')} type="password" placeholder="Confirm Password" />
                                     </div>
                                     {/* <!-- Single Form End --> */}
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
-                                        <input type="password" placeholder="Confirm Password" />
-                                    </div>
-                                    {/* <!-- Single Form End --> */}
-                                    {/* <!-- Single Form Start --> */}
-                                    <div className="single-form">
-                                        <button className="btn btn-primary btn-hover-dark w-100">Create an account</button>
-                                        {/* <a className="btn btn-secondary btn-outline w-100" href="#">Sign up with Google</a> */}
+                                        <button className="btn btn-primary btn-hover-dark w-100"> {loading ? <SpinnerCircular color='white' secondaryColor='green' /> : 'Create an account'} </button>
+                                        <p style={{color: 'red', textAlign: 'center'}}>{err}</p>
+                                        {/* <a className="btn btn-secondary btn-outline w-100" href="#">Login with Google</a> */}
                                     </div>
                                     {/* <!-- Single Form End --> */}
                                 </form>

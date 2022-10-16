@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SingleCourse(props) {
     const {course} = props
@@ -7,7 +8,7 @@ function SingleCourse(props) {
         {/* <!-- Single Courses Start --> */}
         <div className="single-courses">
             <div className="courses-images">
-                <a href="courses-details.html"><img src={course['courseImg']} alt="Courses" /></a>
+                <Link to='/login'><img src={course['courseImg']} alt="Courses" /></Link>
             </div>
             <div className="courses-content">
                 <div className="courses-author">
