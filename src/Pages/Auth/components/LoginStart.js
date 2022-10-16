@@ -107,7 +107,7 @@ function LoginStart() {
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     {/* <!-- Single Form Start --> */}
                                     <div className="single-form">
-                                        <input required {...register('phoneNumber')} type="tel" placeholder="Phone Number or Email" />
+                                        <input required {...register('phoneNumber')} type="tel" placeholder="Enter Phone Number" />
                                     </div>
                                     {/* <!-- Single Form End --> */}
                                     {/* <!-- Single Form Start --> */}
