@@ -26,7 +26,7 @@ function CourseWrapper() {
   }
 
   useEffect(() => {
-    axios.get(`https://delzyscholarsapi.herokuapp.com/api/materials/get/all/materials?category=${categories[current]}`).then((res) => {
+    axios.get(`https://thoughtful-pullover-worm.cyclic.app/api/materials/get/all/materials?category=${categories[current]}`).then((res) => {
       console.log(res.data)
       const results = res.data['results']
       setData(results)

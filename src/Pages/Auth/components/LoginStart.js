@@ -22,7 +22,7 @@ function LoginStart() {
         setLoading(true)
         setErr('')
         console.log(data)
-        axios.post('https://delzyscholarsapi.herokuapp.com/api/login', data).then((res) => {
+        axios.post('https://thoughtful-pullover-worm.cyclic.app/api/login', data).then((res) => {
             // setLoading(false)
             console.log(res.data)
             const data = res.data

@@ -19,7 +19,7 @@ function RegisterStart() {
         setLoading(true);
         console.log(data)
         setErr('')
-        axios.post('https://delzyscholarsapi.herokuapp.com/api/create/user', data).then((res) => {
+        axios.post('https://thoughtful-pullover-worm.cyclic.app/api/create/user', data).then((res) => {
             console.log(res)
             window.alert('Student Registered Successfully')
             navigate('/login')
